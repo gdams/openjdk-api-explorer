@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
+<head>
+
+	<meta charset="utf-8">
+	<title>AdoptOpenJDK Rest API</title>
+	<meta name="description" content="">
+	<meta name="author" content="">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+	<link rel="stylesheet" href="css/base.css">
+	<link rel="stylesheet" href="css/skeleton.css">
+	<link rel="stylesheet" href="css/layout.css">
+
+	<link rel="stylesheet" href="css/explorer.css">
+	<link rel="stylesheet" href="css/KelpJSONView.css">
+
+	<!--[if lt IE 9]>
+		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+
+	<link rel="shortcut icon" href="img/favicon.ico">
+	<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="img/apple-touch-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="img/apple-touch-icon-114x114.png">
+
+</head>
+<body>
+
+	<div class="container">
+		<div class="sixteen columns">
+			<h1 class="remove-bottom" style="margin-top: 40px">AdoptOpenJDK REST API Explorer <img src="img/spinner.gif" id="loading" alt="" title="" width="16" height="16" style="display: none;" /></h1>
+			<h5>This is an explorer</h5>
+			<hr />
+		</div>
+		<div class="four columns" id="sidebar">
+			<dl>
+				<dt style="margin-top: 0"><h4>JDK Version</h4></dt>
+				<dd><a href="/v2/info/releases/openjdk11" data-requestmethod="get">Releases</a><small>GET /v2/info/releases/openjdk11</small></dd>
+				<dd><a href="/v2/info/nightly/openjdk11" data-requestmethod="get">Nightlies</a><small>GET /v2/info/nightly/openjdk11</small></dd>
+				<dd><a href="/v2/info/releases/openjdk11?release=latest" data-requestmethod="get">Latest</a><small>GET ?release=latest</small></dd>
+				<dd><a href="/v2/info/releases/openjdk11?release=jdk-11%2B28" data-requestmethod="get">Version</a><small>GET ?release=jdk-11+28</small></dd>
+
+				<dt style="margin-top: 0"><h4>Release Type</h4></dt>
+				<dd><a href="/v2/info/releases/openjdk11" data-requestmethod="get">Releases</a><small>GET /v2/info/releases/openjdk11</small></dd>
+				<dd><a href="/v2/info/nightly/openjdk11" data-requestmethod="get">Nightlies</a><small>GET /v2/info/nightly/openjdk11</small></dd>
+				<dd><a href="/v2/info/releases/openjdk11?release=latest" data-requestmethod="get">Latest</a><small>GET ?release=latest</small></dd>
+				<dd><a href="/v2/info/releases/openjdk11?release=jdk-11%2B28" data-requestmethod="get">Version</a><small>GET ?release=jdk-11+28</small></dd>
+
+
+				<dt><h4>Operating System</h4></dt>
+				<dd><a href="/v2/info/releases/openjdk11?os=linux" data-requestmethod="get">Linux</a><small>GET ?os=linux</small></dd>
+				<dd><a href="/v2/info/releases/openjdk11?os=mac" data-requestmethod="get">Mac</a><small>GET ?os=mac</small></dd>
+			  <dd><a href="/v2/info/releases/openjdk11?os=windows" data-requestmethod="get">Windows</a><small>GET ?os=windows</small></dd>
+			  <dd><a href="/v2/info/releases/openjdk11?os=aix" data-requestmethod="get">AIX</a><small>GET ?os=aix</small></dd>
+
+
+				<dt><h4>Architecture</h4></dt>
+				<dd><a href="/v2/info/releases/openjdk11?arch=x64" data-requestmethod="get">x64</a><small>GET ?arch=x64</small></dd>
+				<dd><a href="/v2/info/releases/openjdk11?arch=x32" data-requestmethod="get">x32</a><small>GET ?arch=x32</small></dd>
+				<dd><a href="/v2/info/releases/openjdk11?arch=s390x" data-requestmethod="get">s390x</a><small>GET ?arch=s390x</small></dd>
+				<dd><a href="/v2/info/releases/openjdk11?arch=ppc64le" data-requestmethod="get">ppc64le</a><small>GET ?arch=ppc64le</small></dd>
+				<dd><a href="/v2/info/releases/openjdk11?arch=ppc64" data-requestmethod="get">ppc64</a><small>GET ?arch=ppc64</small></dd>
+				<dd><a href="/v2/info/releases/openjdk11?arch=aarch64" data-requestmethod="get">aarch64</a><small>GET ?arch=aarch64</small></dd>
+				<dd><a href="/v2/info/releases/openjdk11?arch=arm" data-requestmethod="get">arm</a><small>GET ?arch=arm</small></dd>
+
+				<dt><h4>Binary Type</h4></dt>
+				<dd><a href="/v2/info/releases/openjdk11?type=jdk" data-requestmethod="get">JDK</a><small>GET ?type=jdk</small></dd>
+				<dd><a href="/v2/info/releases/openjdk11?type=jre" data-requestmethod="get">JRE</a><small>GET ?type=jre</small></dd>
+
+				<dt><h4>OpenJDK Implementation</h4></dt>
+				<dd><a href="/v2/info/releases/openjdk11?openjdk_impl=hotspot" data-requestmethod="get">Hotspot</a><small>GET ?openjdk_impl=hotspot</small></dd>
+				<dd><a href="/v2/info/releases/openjdk11?openjdk_impl=openj9" data-requestmethod="get">OpenJ9</a><small>GET ?openjdk_impl=openj9</small></dd>
+
+				<dt><h4>Heap Size</h4></dt>
+				<dd><a href="/v2/info/releases/openjdk11?heap_size=normal" data-requestmethod="get">Normal</a><small>GET ?heap_size=normal</small></dd>
+				<dd><a href="/v2/info/releases/openjdk11?heap_size=large" data-requestmethod="get">Large</a><small>GET ?heap_size=large</small></dd>
+			</dl>
+		</div>
+		<div class="eleven columns">
+			<form action="#" method="post" class="row">
+				<label class="two columns alpha">
+					<select name="requestmethod" id="requestmethod">
+						<option value="GET">GET</option>
+						<option value="POST">POST</option>
+						<option value="PUT">PUT</option>
+						<option value="DELETE">DELETE</option>
+					</select>
+				</label>
+				<label class="nine columns omega">
+					<input type="text" id="apiurl" />
+				</label>
+			</form>
+			<div id="result"></div>
+		</div>
+	</div>
+
+	<script src="js/jquery-1.7.1.min.js"></script>
+	<script src="js/KelpJSONView.js"></script>
+	<script>
+
+		// Config
+		var apiBaseUrl = 'https://api.adoptopenjdk.net';
+		var apiDataType = 'json';
+		var apiExtraHeaders = {};
+		var apiUrlSuffix = '';
+
+		// No CORS support: fall back to JSONP (the API allows the omission of the X-API-Key when JSONP is used)
+		if (!('withCredentials' in new XMLHttpRequest)) {
+			apiDataType = 'jsonp';
+			$('.eleven').prepend('<p class="warning">It looks like your browser does not support CORS.<br />The demo has switched back JSONP, which does not require an <code>X-API-Key</code>.</p>');
+		}
+
+	</script>
+	<script src="js/main.js"></script>
+</body>
+</html>
